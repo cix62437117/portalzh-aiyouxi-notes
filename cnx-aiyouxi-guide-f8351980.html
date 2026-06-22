@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>爱游戏 · 知识型游戏视野站</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 0 1.5rem 3rem;
+        }
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        /* hero section */
+        .hero {
+            padding: 5rem 0 3.5rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e4e9;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #0f1c2e;
+        }
+        .hero h1 span {
+            background: linear-gradient(145deg, #3a5f8f, #1e3a63);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            max-width: 680px;
+            margin: 1.2rem auto 0;
+            font-size: 1.1rem;
+            color: #3b4f62;
+            background: rgba(255,255,255,0.7);
+            padding: 0.75rem 1.6rem;
+            border-radius: 80px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid #d9dee3;
+        }
+        /* cards grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 8px 16px -6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.02);
+            border: 1px solid #e4e9ef;
+            transition: all 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 12px 24px -12px rgba(0,20,40,0.10);
+            border-color: #cbd5e1;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            color: #1c2f40;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h3 i {
+            font-style: normal;
+            background: #e6edf6;
+            padding: 0 0.6rem;
+            border-radius: 40px;
+            font-size: 1rem;
+        }
+        .card p {
+            color: #2b4055;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .card .meta {
+            color: #5b6f82;
+            font-size: 0.87rem;
+            border-top: 1px dashed #dde3eb;
+            padding-top: 0.7rem;
+            margin-top: 0.7rem;
+        }
+        /* 说明区 – 短文段 */
+        .explain {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem 2.5rem;
+            margin: 2.5rem 0 2.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 12px -6px rgba(0,0,0,0.04);
+        }
+        .explain h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #132433;
+        }
+        .explain p {
+            margin-top: 0.9rem;
+            font-size: 1rem;
+            color: #253a4d;
+            max-width: 900px;
+        }
+        .explain p a {
+            color: #1f5090;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b0c6dd;
+            transition: border 0.15s;
+        }
+        .explain p a:hover {
+            border-bottom-color: #1f5090;
+        }
+        /* FAQ 摘要 — 紧凑风格 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 12px -6px rgba(0,0,0,0.04);
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #0b1e31;
+        }
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #edf1f7;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1b3147;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #3b5268;
+            font-size: 0.95rem;
+        }
+        .footer-links {
+            margin-top: 2rem;
+            padding: 1.2rem 0 0.5rem;
+            border-top: 1px solid #dae0e8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem 2rem;
+        }
+        .footer-links .legal {
+            font-size: 0.85rem;
+            color: #4e657b;
+        }
+        .footer-links .legal a {
+            color: #1f5090;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links .legal a:hover {
+            text-decoration: underline;
+        }
+        .footer-links .note {
+            font-size: 0.85rem;
+            color: #5b6f84;
+        }
+        .micro-tag {
+            display: inline-block;
+            background: #e4ebf5;
+            padding: 0.1rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            color: #1f3d5e;
+            margin-right: 0.4rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 0 1rem 2.5rem; }
+            .hero { padding: 3rem 0 2rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero p { font-size: 1rem; padding: 0.6rem 1.2rem; }
+            .explain { padding: 1.6rem; }
+            .faq-summary { padding: 1.4rem; }
+            .footer-links { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <header class="hero">
+        <h1><span>爱游戏</span> · 理解玩法背后的脉络</h1>
+        <p>从机制到叙事，从体验到文化——不止于娱乐</p>
+    </header>
+
+    <!-- 优势区：卡片式特点 -->
+    <section class="cards-grid">
+        <div class="card">
+            <h3>🎮 机制拆解 <i>分析</i></h3>
+            <p>每一款作品都有其核心循环：资源、反馈、成长曲线。我们注重梳理设计逻辑，让玩家看懂“为什么好玩”。</p>
+            <div class="meta">适用场景：单机/独立/策略</div>
+        </div>
+        <div class="card">
+            <h3>📜 叙事光谱 <i>纵深</i></h3>
+            <p>剧情不再只是背景板。从文本到环境叙事，探讨故事如何与交互共同构建沉浸体验。</p>
+            <div class="meta">适用场景：RPG / 冒险 / 互动叙事</div>
+        </div>
+        <div class="card">
+            <h3>🌐 社区生态 <i>观察</i></h3>
+            <p>联机、共创、模组、速通——玩家群体的创造力常常超越游戏本体。这里记录真实的社群现象。</p>
+            <div class="meta">适用场景：多人 / 沙盒 / 竞技</div>
+        </div>
+    </section>
+
+    <!-- 说明区：知识型延伸段落 -->
+    <div class="explain">
+        <h2>不止于“好玩”——从主题内容出发</h2>
+        <p>如果你对一款游戏的好奇不止于通关，那么你或许也会在意它的世界观设定、美术风格来源、以及不同版本间的设计取舍。这些内容共同构成了游戏作为一种媒介的表达深度。在 <a href="https://cnx-aiyouxi.com">爱游戏</a>，我们尝试用更清晰的视角去呈现这些层次，让玩家在按下手柄或键盘之前，心里已经有一份背景地图。</p>
+        <p style="margin-top: 0.7rem;">无论是关于数值系统的平衡笔记，还是对某一关卡氛围的解读，我们的目标始终一致：提供有依据、有脉络的内容参考。信息克制，但足以引发思考。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <strong>❓ 内容偏向哪些类型的游戏？</strong>
+            <p>覆盖范围较广，从独立作品到大型商业项目均有涉及，但侧重那些在机制或叙事上有明显特点的作品。怀旧经典与新锐实验都会出现。</p>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 会有攻略或速通指南吗？</strong>
+            <p>我们更侧重背景解读与设计分析，而非步骤式攻略。偶尔会梳理某个关卡的思路脉络，但不会替代玩家自己的探索。</p>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 更新频率如何？</strong>
+            <p>不定时更新，但每篇都经过信息整理。希望保证内容密度，而不是流水式发布。你可以随时回来看看。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <footer class="footer-links">
+        <div class="legal">
+            <span class="micro-tag">站内</span>
+            了解更多游戏视角，可浏览 <a href="https://cnx-aiyouxi.com">爱游戏</a> · 持续丰富中
+        </div>
+        <div class="note">
+            <span style="opacity:0.6;">知识型 · 不煽动 · 有依据</span>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
